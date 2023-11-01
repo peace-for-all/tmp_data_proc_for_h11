@@ -1,5 +1,6 @@
 # tmp_data_proc_for_h11
 Data processing demo for H11 dudes (data engineering role)
+[Trello board](https://trello.com/b/VurIUXTk/tmpdataprocforh11)
 
 ## Pipeline -> dashboards
 Demonstrate this:
