@@ -26,6 +26,7 @@ for filename in os.listdir(input_directory):
 
         # todo parse file name
         job_title, company, date_str, time_str = parse.get_filename_data(filename)
+        datetime_str = f"{date_str} {time_str}"
 
         # Read job description from file
         with open(os.path.join(input_directory, filename), 'r') as f:
@@ -51,7 +52,7 @@ for filename in os.listdir(input_directory):
 
         # Append the job data to the dictionary
         print(f"Job title: {job_title}, skills found: {', '.join(skills_found)}")
-        jobs_by_date[date_str].append([time_str, job_title, company] + skills_found) #  + [str(final_score)])
+        jobs_by_date[date_str].append([datetime_str, job_title, company] + skills_found) #  + [str(final_score)])
 
 # Write the data to CSV files, one per date
 for date, jobs in jobs_by_date.items():
