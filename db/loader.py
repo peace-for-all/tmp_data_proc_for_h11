@@ -4,6 +4,7 @@ import sys
 import argparse
 import pandas as pd
 from config import config
+
 from connector import Connector
 
 
@@ -23,7 +24,8 @@ class Loader:
         file_format = self.config.get('file_format')
 
         # Construct file path
-        file_path = os.path.join(source_data_dir, f"{self.date}.{file_format}")
+        file_path = os.path.join('..', source_data_dir, f"{self.date}.{file_format}")
+        # todo: fix hacky join to ..
 
         # Check if file exists
         if not os.path.exists(file_path):
@@ -45,8 +47,8 @@ class Loader:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Load data into table')
-    parser.add_argument('--table-name', required=True)
-    parser.add_argument('--date', required=True)
+    parser.add_argument('table_name')
+    parser.add_argument('date')
     args = parser.parse_args()
 
     loader = Loader(args.table_name, args.date)
